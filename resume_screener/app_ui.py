@@ -125,7 +125,7 @@ def main():
         # Embedding an interactive 3D model from Spline or Sketchfab for the high-end look
         st.markdown("""
             <div style="width:100%; height:300px; background: transparent; border-radius: 24px; overflow: hidden; margin-top: -40px;">
-                <iframe src='https://my.spline.design/smarthomecoursetemplate-9214f42bb1704b94132574ea6b9b124c/' frameborder='0' width='100%' height='100%'></iframe>
+                <iframe title="Smiling Robot" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/9b1c86da128147e59bdbb9092ad40d2e/embed" width="100%" height="100%"></iframe>
             </div>
         """, unsafe_allow_html=True)
 
