@@ -125,7 +125,7 @@ def main():
         # Embedding an interactive 3D model from Spline or Sketchfab for the high-end look
         st.markdown("""
             <div style="width:100%; height:300px; background: transparent; border-radius: 24px; overflow: hidden; margin-top: -40px;">
-                <iframe src='https://my.spline.design/abstractgradientcirclescopy-68936081e6498774888277258386f68c/' frameborder='0' width='100%' height='100%'></iframe>
+                <iframe src='https://my.spline.design/smarthomecoursetemplate-9214f42bb1704b94132574ea6b9b124c/' frameborder='0' width='100%' height='100%'></iframe>
             </div>
         """, unsafe_allow_html=True)
 
