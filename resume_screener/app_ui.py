@@ -19,11 +19,12 @@ st.set_page_config(
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
     /* Global Styles */
     html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
         background: linear-gradient(135deg, #050505 0%, #0a0a12 50%, #1a1a2e 100%) !important;
-        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        font-family: 'Poppins', 'Plus Jakarta Sans', sans-serif !important;
         color: #E2E8F0 !important;
         overflow-x: hidden;
     }
@@ -108,22 +109,24 @@ st.markdown("""
         background: linear-gradient(90deg, #FFFFFF 0%, #94A3B8 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-weight: 800;
+        font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: -0.02em;
-        line-height: 1.1;
+        letter-spacing: 0.05em;
+        line-height: 1.2;
         font-size: clamp(2.5rem, 6vw, 80px);
         margin-bottom: 10px;
+        font-family: 'Poppins', sans-serif !important;
     }
 
     /* Sub-heading */
     .sub-heading {
         color: #94A3B8;
-        font-weight: 500;
+        font-weight: 400;
         text-transform: uppercase;
-        letter-spacing: 0.2em;
+        letter-spacing: 0.15em;
         font-size: 0.9rem;
         margin-bottom: 5px;
+        font-family: 'Poppins', sans-serif !important;
     }
 
     /* Custom Button */
@@ -242,7 +245,7 @@ def main():
         # Embedding the Robot model with animation
         st.markdown("""
             <div class="robot-container" style="width:100%; height:500px; background: transparent; border-radius: 30px; overflow: hidden; margin-top: -20px; display: flex; justify-content: center; align-items: center;">
-                <img src="https://raw.githubusercontent.com/HadiaAkbar/Teyzix-Internship_task2/main/resume_screener/assets/robot_hero_clean.png" style="max-width: 120%; max-height: 120%; object-fit: contain; filter: drop-shadow(0 20px 40px rgba(99, 102, 241, 0.3));" alt="Robot as main character">
+                <img src="https://raw.githubusercontent.com/HadiaAkbar/Teyzix-Internship_task2/main/resume_screener/assets/robot_hero_blended.png" style="max-width: 120%; max-height: 120%; object-fit: contain;" alt="Robot as main character">
             </div>
         """, unsafe_allow_html=True)
 
