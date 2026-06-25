@@ -15,7 +15,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Custom CSS for High-End Modern Theme
+# Custom CSS for High-End Modern Theme with Animated Background
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
@@ -25,10 +25,66 @@ st.markdown("""
         background: linear-gradient(135deg, #050505 0%, #0a0a12 50%, #1a1a2e 100%) !important;
         font-family: 'Plus Jakarta Sans', sans-serif !important;
         color: #E2E8F0 !important;
+        overflow-x: hidden;
     }
     
     [data-testid="stHeader"] {
         background: transparent !important;
+    }
+
+    /* Animated Background Elements */
+    .bg-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .floating-doc {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 4px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        pointer-events: none;
+        animation: float 20s infinite linear;
+        opacity: 0.3;
+    }
+
+    /* Resume Shape */
+    .resume { width: 40px; height: 55px; }
+    .resume::after {
+        content: '';
+        position: absolute;
+        top: 10px; left: 5px; right: 5px; height: 2px;
+        background: rgba(255,255,255,0.1);
+        box-shadow: 0 6px 0 rgba(255,255,255,0.1), 0 12px 0 rgba(255,255,255,0.1), 0 18px 0 rgba(255,255,255,0.1);
+    }
+
+    /* Folder Shape */
+    .folder { 
+        width: 50px; height: 35px; 
+        border-radius: 0 4px 4px 4px;
+    }
+    .folder::before {
+        content: '';
+        position: absolute;
+        top: -6px; left: 0; width: 20px; height: 6px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 4px 4px 0 0;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: none;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(110vh) translateX(-10vw) rotate(0deg); opacity: 0; }
+        10% { opacity: 0.3; }
+        90% { opacity: 0.3; }
+        100% { transform: translateY(-10vh) translateX(10vw) rotate(360deg); opacity: 0; }
     }
 
     /* Modern Glassmorphism Container */
@@ -127,17 +183,25 @@ st.markdown("""
         letter-spacing: 0.1em !important;
     }
 
-    /* Sidebar hide */
-    [data-testid="stSidebar"] {
-        display: none;
-    }
-    
     /* Hide Streamlit Branding */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
 
     </style>
+
+    <div class="bg-animation">
+        <div class="floating-doc resume" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="floating-doc folder" style="left: 25%; animation-delay: 4s;"></div>
+        <div class="floating-doc resume" style="left: 45%; animation-delay: 8s;"></div>
+        <div class="floating-doc folder" style="left: 65%; animation-delay: 2s;"></div>
+        <div class="floating-doc resume" style="left: 85%; animation-delay: 12s;"></div>
+        <div class="floating-doc folder" style="left: 15%; animation-delay: 15s;"></div>
+        <div class="floating-doc resume" style="left: 35%; animation-delay: 6s;"></div>
+        <div class="floating-doc folder" style="left: 55%; animation-delay: 10s;"></div>
+        <div class="floating-doc resume" style="left: 75%; animation-delay: 14s;"></div>
+        <div class="floating-doc folder" style="left: 95%; animation-delay: 1s;"></div>
+    </div>
     """, unsafe_allow_html=True)
 
 def main():
