@@ -1,51 +1,41 @@
-AI-Powered Resume Screening & Candidate Ranking System
+**AI-Powered Resume Screening & Candidate Ranking System**
 
 
-Link
+**Link**
 https://teyzix-internshiptask2-e3uklr9d59hgbqnpld6uak.streamlit.app/
 
 
-Overview
+**Overview**
 
 The AI-Powered Resume Screening & Candidate Ranking System is a high-end, intelligent recruitment engine designed to automate the evaluation of talent. Featuring a sophisticated dark-themed dashboard inspired by modern creator portfolios, it leverages advanced NLP to bridge the gap between job requirements and candidate potential.
 
 Features
 
-•
-Resume Parsing: Automatically extracts text and structured data (skills, experience, contact info) from PDF resumes.
+• Resume Parsing: Automatically extracts text and structured data (skills, experience, contact info) from PDF resumes.
 
-•
-Job Description Analysis: Analyzes job descriptions to identify required skills and qualifications.
+• Job Description Analysis: Analyzes job descriptions to identify required skills and qualifications.
 
-•
-Intelligent Matching: Calculates semantic similarity and skill-based matching scores between candidates and jobs.
+• Intelligent Matching: Calculates semantic similarity and skill-based matching scores between candidates and jobs.
 
-•
-Candidate Ranking: Ranks applicants based on their suitability for specific roles.
+• Candidate Ranking: Ranks applicants based on their suitability for specific roles.
 
-•
-Summarization: Generates concise summaries of candidate profiles.
+• Summarization: Generates concise summaries of candidate profiles.
 
-•
-API Interface: Provides a RESTful API for easy integration with other tools.
+• API Interface: Provides a RESTful API for easy integration with other tools.
 
-•
-Interactive 3D Dashboard: A sophisticated UI featuring an embedded 3D model viewer for a high-end creator aesthetic.
+• Interactive 3D Dashboard: A sophisticated UI featuring an embedded 3D model viewer for a high-end creator aesthetic.
 
 Getting Started
 
 Prerequisites
 
-•
-Python 3.8+
+• Python 3.8+
 
-•
-pip
+• pip
 
-Installation
+Installation 
 
-1.
-Clone the repository:
+1. Clone the repository:
 
 Bash
 
@@ -57,8 +47,7 @@ cd resume_screener
 
 
 
-2.
-Install dependencies:
+2. Install dependencies:
 
 Bash
 
@@ -71,11 +60,9 @@ pip install -r requirements.txt
 
 Configuration
 
-1.
-Copy .env.example to .env.
+1. Copy .env.example to .env.
 
-2.
-Configure your environment variables (e.g., API keys, database URLs) in the .env file.
+2. Configure your environment variables (e.g., API keys, database URLs) in the .env file.
 
 Usage
 
@@ -118,30 +105,23 @@ Refer to docs/FOLDER_STRUCTURE.md for a detailed breakdown of the project direct
 
 Documentation
 
-•
-Model Documentation
+• Model Documentation
 
-•
-API Documentation
+• API Documentation
 
 Evaluation Criteria
 
 The system is designed to meet the following criteria:
 
-•
-AI Functionality and Accuracy
+• AI Functionality and Accuracy
 
-•
-Problem-Solving Approach
+• Problem-Solving Approach
 
-•
-System Design and Implementation
+• System Design and Implementation
 
-•
-Documentation and Explainability
+• Documentation and Explainability
 
-•
-Code Quality and Project Structure
+• Code Quality and Project Structure
 
 License
 
