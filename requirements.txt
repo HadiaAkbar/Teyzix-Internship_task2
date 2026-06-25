@@ -1,0 +1,42 @@
+import re
+
+class InfoExtractor:
+    def __init__(self):
+        pass
+
+    def extract_email(self, text):
+        """Extracts email addresses from text."""
+        email_pattern = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
+        emails = re.findall(email_pattern, text)
+        return emails[0] if emails else None
+
+    def extract_phone(self, text):
+        """Extracts phone numbers from text."""
+        phone_pattern = r'(\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4})'
+        phones = re.findall(phone_pattern, text)
+        return phones[0] if phones else None
+
+    def extract_skills(self, text, skill_list):
+        """Extracts predefined skills from text."""
+        found_skills = []
+        for skill in skill_list:
+            if re.search(r'\b' + re.escape(skill) + r'\b', text, re.IGNORECASE):
+                found_skills.append(skill)
+        return list(set(found_skills))
+
+    def extract_info(self, text, skill_list=[]):
+        """Extracts all relevant candidate information."""
+        info = {
+            "email": self.extract_email(text),
+            "phone": self.extract_phone(text),
+            "skills": self.extract_skills(text, skill_list)
+        }
+        # Further extraction for Name, Education, Experience, etc. would go here
+        return info
+
+if __name__ == "__main__":
+    extractor = InfoExtractor()
+    sample_text = "Contact me at john.doe@example.com or 123-456-7890. I have skills in Python and Machine Learning."
+    skills = ["Python", "Machine Learning", "Java", "SQL"]
+    info = extractor.extract_info(sample_text, skills)
+    print(info)

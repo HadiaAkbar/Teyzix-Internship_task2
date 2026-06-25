@@ -1,0 +1,37 @@
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+class CandidateMatcher:
+    def __init__(self):
+        self.vectorizer = TfidfVectorizer()
+
+    def calculate_similarity(self, resume_text, job_description):
+        """Calculates cosine similarity between resume and job description."""
+        tfidf_matrix = self.vectorizer.fit_transform([resume_text, job_description])
+        similarity_score = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])[0][0]
+        return similarity_score
+
+    def rank_candidates(self, resumes, job_description):
+        """Ranks candidates based on their similarity to the job description."""
+        rankings = []
+        for resume in resumes:
+            score = self.calculate_similarity(resume['text'], job_description)
+            rankings.append({
+                "candidate_id": resume['id'],
+                "score": score
+            })
+        
+        # Sort candidates by score in descending order
+        rankings.sort(key=lambda x: x['score'], reverse=True)
+        return rankings
+
+if __name__ == "__main__":
+    matcher = CandidateMatcher()
+    job_desc = "Looking for a Python developer with experience in machine learning and data analysis."
+    resumes = [
+        {"id": "C1", "text": "Experienced Python developer skilled in machine learning, data analysis, and SQL."},
+        {"id": "C2", "text": "Web developer with expertise in JavaScript, React, and CSS."},
+        {"id": "C3", "text": "Data scientist with a strong background in Python, statistics, and machine learning."}
+    ]
+    rankings = matcher.rank_candidates(resumes, job_desc)
+    print(rankings)
