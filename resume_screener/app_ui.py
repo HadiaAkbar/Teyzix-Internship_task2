@@ -221,8 +221,8 @@ def main():
     with col_3d:
         # Embedding the Robot model
         st.markdown("""
-            <div style="width:100%; height:350px; background: transparent; border-radius: 30px; overflow: hidden; margin-top: -20px;">
-                <iframe title="Hatsune Miku V4Xβ" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/7d911ffbee3a4184b0fb9753eba4675c/embed" width="100%" height="100%"></iframe>
+            <div style="width:100%; height:350px; background: transparent; border-radius: 30px; overflow: hidden; margin-top: -20px; display: flex; justify-content: center; align-items: center;">
+                <img src="https://raw.githubusercontent.com/HadiaAkbar/Teyzix-Internship_task2/main/resume_screener/assets/robot_hero.png" style="max-width: 100%; max-height: 100%; object-fit: contain;" alt="Robot as main character">
             </div>
         """, unsafe_allow_html=True)
 
