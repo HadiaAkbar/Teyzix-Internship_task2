@@ -222,7 +222,7 @@ def main():
         # Embedding the Robot model
         st.markdown("""
             <div style="width:100%; height:350px; background: transparent; border-radius: 30px; overflow: hidden; margin-top: -20px;">
-                <iframe title="Smiling Robot" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/9b1c86da128147e59bdbb9092ad40d2e/embed" width="100%" height="100%"></iframe>
+                <iframe title="Hatsune Miku" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/087f4041bd554c6e89ea0e8ae7fc1c9c/embed" width="100%" height="100%"></iframe>
             </div>
         """, unsafe_allow_html=True)
 
