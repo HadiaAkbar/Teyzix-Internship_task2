@@ -15,208 +15,268 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Custom CSS for High-End Dark Theme (Inspired by Jack's Portfolio)
+# Custom CSS for High-End Modern Theme
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
     /* Global Styles */
     html, body, [data-testid="stAppViewContainer"] {
-        background-color: #0C0C0C !important;
-        font-family: 'Kanit', sans-serif !important;
-        color: #D7E2EA !important;
+        background: linear-gradient(135deg, #050505 0%, #0a0a12 50%, #1a1a2e 100%) !important;
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        color: #E2E8F0 !important;
     }
     
     [data-testid="stHeader"] {
-        background: rgba(12, 12, 12, 0.8) !important;
+        background: transparent !important;
+    }
+
+    /* Modern Glassmorphism Container */
+    .stMarkdown, .stButton, [data-testid="stVerticalBlock"] > div {
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
     }
 
     /* Gradient Heading */
     .hero-heading {
-        background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+        background: linear-gradient(90deg, #FFFFFF 0%, #94A3B8 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-weight: 900;
+        font-weight: 800;
         text-transform: uppercase;
-        letter-spacing: -0.05em;
-        line-height: 1;
-        font-size: clamp(3rem, 8vw, 120px);
-        margin-bottom: 20px;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        font-size: clamp(2.5rem, 6vw, 80px);
+        margin-bottom: 10px;
     }
 
     /* Sub-heading */
     .sub-heading {
-        color: #D7E2EA;
-        font-weight: 300;
+        color: #94A3B8;
+        font-weight: 500;
         text-transform: uppercase;
-        letter-spacing: 0.1em;
-        font-size: clamp(0.8rem, 1.5vw, 1.2rem);
-        opacity: 0.8;
+        letter-spacing: 0.2em;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
     }
 
-    /* Custom Button (Inspired by ContactButton) */
+    /* Custom Button */
     div.stButton > button {
-        background: linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%) !important;
+        background: linear-gradient(90deg, #6366F1 0%, #A855F7 100%) !important;
         color: white !important;
         border: none !important;
-        border-radius: 50px !important;
-        padding: 12px 40px !important;
-        font-weight: 500 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.1em !important;
-        box-shadow: 0px 4px 4px rgba(181, 1, 167, 0.25) !important;
-        transition: all 0.3s ease !important;
+        border-radius: 12px !important;
+        padding: 10px 30px !important;
+        font-weight: 600 !important;
+        font-size: 1rem !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3) !important;
+        width: 100%;
     }
     
     div.stButton > button:hover {
-        transform: scale(1.05) !important;
-        opacity: 0.9 !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5) !important;
+        opacity: 0.95 !important;
     }
 
-    /* Cards/Containers */
+    /* Glass Cards */
     [data-testid="stVerticalBlock"] > div > div > div[data-testid="stVerticalBlock"] {
-        background: #141414;
-        border: 1px solid rgba(215, 226, 234, 0.1);
-        border-radius: 24px;
-        padding: 20px;
+        background: rgba(255, 255, 255, 0.03) !important;
+        backdrop-filter: blur(12px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+        border-radius: 24px !important;
+        padding: 25px !important;
+        transition: border 0.3s ease !important;
     }
-
-    /* Table/Dataframe Styling */
-    [data-testid="stDataFrame"] {
-        border-radius: 16px;
-        overflow: hidden;
+    
+    [data-testid="stVerticalBlock"] > div > div > div[data-testid="stVerticalBlock"]:hover {
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
     }
 
     /* Input Fields */
-    textarea, input {
-        background-color: #1A1A1A !important;
-        color: #D7E2EA !important;
-        border: 1px solid rgba(215, 226, 234, 0.2) !important;
-        border-radius: 12px !important;
+    textarea, input, [data-testid="stFileUploadDropzone"] {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        color: white !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 16px !important;
+        padding: 15px !important;
     }
     
-    /* Progress Bar */
-    .stProgress > div > div > div > div {
-        background-image: linear-gradient(to right, #B600A8, #7621B0) !important;
+    textarea:focus {
+        border-color: #6366F1 !important;
+        box-shadow: 0 0 0 1px #6366F1 !important;
+    }
+
+    /* Expander Styling */
+    .streamlit-expanderHeader {
+        background-color: rgba(255, 255, 255, 0.02) !important;
+        border-radius: 12px !important;
+        border: none !important;
     }
 
     /* Metric Styling */
     [data-testid="stMetricValue"] {
-        color: #BBCCD7 !important;
-        font-weight: 700 !important;
+        color: #F8FAFC !important;
+        font-weight: 800 !important;
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
     }
+    
+    [data-testid="stMetricLabel"] {
+        color: #94A3B8 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.1em !important;
+    }
+
+    /* Sidebar hide */
+    [data-testid="stSidebar"] {
+        display: none;
+    }
+    
+    /* Hide Streamlit Branding */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+
     </style>
     """, unsafe_allow_html=True)
 
 def main():
     # Header Section
     st.markdown('<p class="sub-heading">AI-Powered Screening System</p>', unsafe_allow_html=True)
-    col_title, col_3d = st.columns([2, 1])
+    col_title, col_3d = st.columns([1.8, 1.2], gap="large")
     
     with col_title:
-        st.markdown('<h1 class="hero-heading">HI, I\'M THE RECRUITER\'S AI</h1>', unsafe_allow_html=True)
+        st.markdown('<h1 class="hero-heading">RECRUITER\'S INTELLIGENCE</h1>', unsafe_allow_html=True)
         st.markdown("""
-            <p style="font-weight: 300; text-transform: uppercase; letter-spacing: 0.05em; color: #D7E2EA; max-width: 500px; margin-bottom: 40px;">
-            An intelligent screening engine driven by crafting striking and unforgettable candidate shortlists.
+            <p style="font-weight: 400; color: #94A3B8; max-width: 600px; margin-bottom: 40px; font-size: 1.1rem; line-height: 1.6;">
+            Elevate your hiring process with our advanced neural screening engine. 
+            Designed to identify top-tier talent with surgical precision.
             </p>
         """, unsafe_allow_html=True)
     
     with col_3d:
-        # Embedding an interactive 3D model from Spline or Sketchfab for the high-end look
+        # Embedding the Robot model
         st.markdown("""
-            <div style="width:100%; height:300px; background: transparent; border-radius: 24px; overflow: hidden; margin-top: -40px;">
+            <div style="width:100%; height:350px; background: transparent; border-radius: 30px; overflow: hidden; margin-top: -20px;">
                 <iframe title="Smiling Robot" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/9b1c86da128147e59bdbb9092ad40d2e/embed" width="100%" height="100%"></iframe>
             </div>
         """, unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
 
     # Main Interaction Area
     col1, col2 = st.columns([1, 1], gap="large")
 
     with col1:
-        st.markdown('<h3 style="text-transform: uppercase; letter-spacing: 0.1em;">01 - JOB CONTEXT</h3>', unsafe_allow_html=True)
+        st.markdown('<p class="sub-heading">01 - CONTEXT</p>', unsafe_allow_html=True)
+        st.markdown('<h3 style="margin-top:0;">JOB SPECIFICATIONS</h3>', unsafe_allow_html=True)
         jd_input = st.text_area(
-            "Paste Job Description",
-            height=300,
-            placeholder="Describe the ideal candidate..."
+            "Job Description",
+            height=250,
+            placeholder="Paste the job requirements here...",
+            label_visibility="collapsed"
         )
         
         if jd_input:
             job_data = parse_job_description(jd_input)
-            with st.expander("VIEW EXTRACTED REQUIREMENTS"):
+            with st.expander("ANALYZED REQUIREMENTS"):
                 st.json(job_data)
 
     with col2:
-        st.markdown('<h3 style="text-transform: uppercase; letter-spacing: 0.1em;">02 - TALENT POOL</h3>', unsafe_allow_html=True)
+        st.markdown('<p class="sub-heading">02 - ASSETS</p>', unsafe_allow_html=True)
+        st.markdown('<h3 style="margin-top:0;">CANDIDATE DOSSIERS</h3>', unsafe_allow_html=True)
         uploaded_files = st.file_uploader(
-            "Upload Resumes (PDF)",
+            "Upload Resumes",
             type="pdf",
-            accept_multiple_files=True
+            accept_multiple_files=True,
+            label_visibility="collapsed"
         )
         
         if uploaded_files:
-            st.markdown(f'<p style="color: #B600A8; font-weight: 500;">{len(uploaded_files)} RESUMES LOADED</p>', unsafe_allow_html=True)
+            st.markdown(f'<p style="color: #6366F1; font-weight: 600; font-size: 0.9rem;">{len(uploaded_files)} DOCUMENTS LOADED</p>', unsafe_allow_html=True)
 
-    st.markdown("<br><br>", unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
 
     # Action Button
-    if st.button("EXECUTE SCREENING"):
-        if not jd_input or not uploaded_files:
-            st.warning("PLEASE PROVIDE BOTH CONTEXT AND TALENT DATA.")
-        else:
-            process_and_display_results(jd_input, uploaded_files)
+    col_btn_1, col_btn_2, col_btn_3 = st.columns([1, 1, 1])
+    with col_btn_2:
+        if st.button("INITIATE NEURAL SCREENING"):
+            if not jd_input or not uploaded_files:
+                st.warning("Please provide both job context and candidate data.")
+            else:
+                st.session_state['screening_triggered'] = True
+
+    if st.session_state.get('screening_triggered'):
+        process_and_display_results(jd_input, uploaded_files)
 
 def process_and_display_results(jd_input, uploaded_files):
-    st.markdown('<h2 class="hero-heading" style="font-size: 60px;">THE RANKINGS</h2>', unsafe_allow_html=True)
+    st.markdown('<hr style="border: 1px solid rgba(255,255,255,0.05); margin: 40px 0;">', unsafe_allow_html=True)
+    st.markdown('<h2 class="hero-heading" style="font-size: 45px; text-align: center;">SCREENING ANALYTICS</h2>', unsafe_allow_html=True)
     
     results = []
     job_data = parse_job_description(jd_input)
-    progress_bar = st.progress(0)
     
-    for idx, uploaded_file in enumerate(uploaded_files):
-        # Simulation of extraction
-        text = f"Simulated content from {uploaded_file.name}"
-        resume_data = parse_resume(text)
-        resume_data['name'] = uploaded_file.name.replace(".pdf", "").replace("_", " ").title()
-        
-        score = calculate_match_score(resume_data, job_data)
-        summary = summarize_text(text)
-        
-        results.append({
-            "NAME": resume_data['name'],
-            "SCORE": score,
-            "SUMMARY": summary,
-            "SKILLS": ", ".join(resume_data.get('skills', []))
-        })
-        progress_bar.progress((idx + 1) / len(uploaded_files))
+    with st.status("Analyzing candidates...", expanded=True) as status:
+        progress_bar = st.progress(0)
+        for idx, uploaded_file in enumerate(uploaded_files):
+            # Simulation of extraction
+            text = f"Simulated content from {uploaded_file.name}"
+            resume_data = parse_resume(text)
+            resume_data['name'] = uploaded_file.name.replace(".pdf", "").replace("_", " ").title()
+            
+            score = calculate_match_score(resume_data, job_data)
+            summary = summarize_text(text)
+            
+            results.append({
+                "NAME": resume_data['name'],
+                "SCORE": score,
+                "SUMMARY": summary,
+                "SKILLS": ", ".join(resume_data.get('skills', []))
+            })
+            progress_bar.progress((idx + 1) / len(uploaded_files))
+        status.update(label="Analysis complete!", state="complete", expanded=False)
 
     # Sort results
     ranked_results = sorted(results, key=lambda x: x['SCORE'], reverse=True)
     
-    # Display Summary Table
-    df = pd.DataFrame(ranked_results)
-    df['SCORE'] = (df['SCORE'] * 100).map('{:.1f}%'.format)
-    st.dataframe(df[['NAME', 'SCORE', 'SKILLS']], use_container_width=True)
+    # Summary Metrics
+    m1, m2, m3 = st.columns(3)
+    m1.metric("CANDIDATES", len(ranked_results))
+    m2.metric("TOP SCORE", f"{ranked_results[0]['SCORE']*100:.1f}%")
+    m3.metric("AVG MATCH", f"{(sum(r['SCORE'] for r in ranked_results)/len(ranked_results))*100:.1f}%")
 
-    # Detailed Cards (Sticky-stacking inspired)
     st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Detailed Cards
     for i, candidate in enumerate(ranked_results):
+        score_val = candidate['SCORE'] * 100
+        score_color = "#10B981" if score_val > 70 else "#F59E0B" if score_val > 40 else "#EF4444"
+        
         with st.container():
-            c1, c2 = st.columns([1, 4])
-            with c1:
-                st.markdown(f'<h1 style="font-size: 80px; opacity: 0.2; margin: 0;">0{i+1}</h1>', unsafe_allow_html=True)
-                st.metric("MATCH", f"{float(candidate['SCORE'].strip('%')):.1f}%")
-            with c2:
-                st.markdown(f'<h3 style="text-transform: uppercase; color: #BBCCD7;">{candidate["NAME"]}</h3>', unsafe_allow_html=True)
-                st.write(f"**AI INSIGHT:** {candidate['SUMMARY']}")
-                st.write(f"**CORE COMPETENCIES:** {candidate['SKILLS']}")
-            st.markdown("---")
+            st.markdown(f"""
+                <div style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 20px; border-left: 5px solid {score_color}; margin-bottom: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <h3 style="margin:0; color: white;">{candidate['NAME']}</h3>
+                        <span style="background: {score_color}22; color: {score_color}; padding: 5px 15px; border-radius: 50px; font-weight: 700; font-size: 0.9rem;">
+                            {score_val:.1f}% MATCH
+                        </span>
+                    </div>
+                    <p style="color: #94A3B8; font-size: 0.95rem; line-height: 1.6;">
+                        <strong>AI INSIGHT:</strong> {candidate['SUMMARY']}
+                    </p>
+                    <p style="color: #6366F1; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">
+                        SKILLS: {candidate['SKILLS']}
+                    </p>
+                </div>
+            """, unsafe_allow_html=True)
 
     # Export
+    df = pd.DataFrame(ranked_results)
     csv = df.to_csv(index=False).encode('utf-8')
     st.download_button(
-        label="DOWNLOAD RANKINGS DATA",
+        label="EXPORT DATA TO CSV",
         data=csv,
-        file_name='rankings.csv',
+        file_name='screening_results.csv',
         mime='text/csv',
     )
 
