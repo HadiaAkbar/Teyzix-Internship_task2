@@ -1,0 +1,15 @@
+John Doe
+john.doe@email.com
+123-456-7890
+
+Summary: Highly motivated Python developer with 5 years of experience in NLP and Machine Learning.
+
+Skills: Python, NLP, Machine Learning, TensorFlow, PyTorch, Scikit-learn, Data Analysis, API Development.
+
+Experience:
+Software Engineer at Tech Solutions (2021-Present)
+- Developed and deployed NLP models for text classification.
+- Built RESTful APIs for data processing.
+
+Education:
+Master of Science in Computer Science, University of Example (2019-2021)

@@ -1,0 +1,17 @@
+Job Title: Senior NLP Engineer
+
+Company: AI Innovations Inc.
+
+Location: Remote
+
+Responsibilities:
+- Design, develop, and deploy advanced NLP models.
+- Work with large datasets to improve model performance.
+- Collaborate with cross-functional teams.
+
+Requirements:
+- Master's or Ph.D. in Computer Science or related field.
+- 5+ years of experience in NLP and Machine Learning.
+- Strong proficiency in Python, TensorFlow, PyTorch.
+- Experience with transformer-based models.
+- Excellent communication and problem-solving skills.

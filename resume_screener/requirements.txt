@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+python-multipart
+pydantic
+sqlalchemy
+PyPDF2
+spacy
+scikit-learn
+transformers
+sentence-transformers
+python-dotenv
+pandas
+numpy
+pytest
+streamlit
+altair
