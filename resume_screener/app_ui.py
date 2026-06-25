@@ -21,11 +21,16 @@ st.markdown("""
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
     /* Global Styles */
-    html, body, [data-testid="stAppViewContainer"] {
+    html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
         background: linear-gradient(135deg, #050505 0%, #0a0a12 50%, #1a1a2e 100%) !important;
         font-family: 'Plus Jakarta Sans', sans-serif !important;
         color: #E2E8F0 !important;
         overflow-x: hidden;
+    }
+    
+    /* Ensure Streamlit's main content area is transparent to show the background */
+    [data-testid="stAppViewContainer"] {
+        background-color: transparent !important;
     }
     
     [data-testid="stHeader"] {
@@ -37,54 +42,60 @@ st.markdown("""
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0; /* Changed from -1 to 0 to be above the gradient but below content */
         overflow: hidden;
         pointer-events: none;
     }
 
+    /* Ensure content stays above the animation */
+    [data-testid="stVerticalBlock"] {
+        position: relative;
+        z-index: 10;
+    }
+
     .floating-doc {
         position: absolute;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 4px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         pointer-events: none;
-        animation: float 20s infinite linear;
-        opacity: 0.3;
+        animation: float 25s infinite linear;
+        opacity: 0;
     }
 
     /* Resume Shape */
-    .resume { width: 40px; height: 55px; }
+    .resume { width: 45px; height: 60px; }
     .resume::after {
         content: '';
         position: absolute;
-        top: 10px; left: 5px; right: 5px; height: 2px;
-        background: rgba(255,255,255,0.1);
-        box-shadow: 0 6px 0 rgba(255,255,255,0.1), 0 12px 0 rgba(255,255,255,0.1), 0 18px 0 rgba(255,255,255,0.1);
+        top: 10px; left: 8px; right: 8px; height: 2px;
+        background: rgba(255,255,255,0.15);
+        box-shadow: 0 8px 0 rgba(255,255,255,0.15), 0 16px 0 rgba(255,255,255,0.15), 0 24px 0 rgba(255,255,255,0.15), 0 32px 0 rgba(255,255,255,0.15);
     }
 
     /* Folder Shape */
     .folder { 
-        width: 50px; height: 35px; 
-        border-radius: 0 4px 4px 4px;
+        width: 55px; height: 40px; 
+        border-radius: 0 6px 6px 6px;
     }
     .folder::before {
         content: '';
         position: absolute;
-        top: -6px; left: 0; width: 20px; height: 6px;
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 4px 4px 0 0;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        top: -8px; left: 0; width: 25px; height: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 6px 6px 0 0;
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-bottom: none;
     }
 
     @keyframes float {
-        0% { transform: translateY(110vh) translateX(-10vw) rotate(0deg); opacity: 0; }
-        10% { opacity: 0.3; }
-        90% { opacity: 0.3; }
-        100% { transform: translateY(-10vh) translateX(10vw) rotate(360deg); opacity: 0; }
+        0% { transform: translateY(110vh) translateX(0) rotate(0deg); opacity: 0; }
+        10% { opacity: 0.4; }
+        90% { opacity: 0.4; }
+        100% { transform: translateY(-20vh) translateX(20px) rotate(360deg); opacity: 0; }
     }
 
     /* Modern Glassmorphism Container */
@@ -137,16 +148,17 @@ st.markdown("""
 
     /* Glass Cards */
     [data-testid="stVerticalBlock"] > div > div > div[data-testid="stVerticalBlock"] {
-        background: rgba(255, 255, 255, 0.03) !important;
-        backdrop-filter: blur(12px) !important;
-        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+        background: rgba(255, 255, 255, 0.04) !important;
+        backdrop-filter: blur(16px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
         border-radius: 24px !important;
         padding: 25px !important;
-        transition: border 0.3s ease !important;
+        transition: all 0.3s ease !important;
     }
     
     [data-testid="stVerticalBlock"] > div > div > div[data-testid="stVerticalBlock"]:hover {
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        background: rgba(255, 255, 255, 0.06) !important;
     }
 
     /* Input Fields */
@@ -163,26 +175,12 @@ st.markdown("""
         box-shadow: 0 0 0 1px #6366F1 !important;
     }
 
-    /* Expander Styling */
-    .streamlit-expanderHeader {
-        background-color: rgba(255, 255, 255, 0.02) !important;
-        border-radius: 12px !important;
-        border: none !important;
-    }
-
     /* Metric Styling */
     [data-testid="stMetricValue"] {
         color: #F8FAFC !important;
         font-weight: 800 !important;
-        font-family: 'Plus Jakarta Sans', sans-serif !important;
     }
     
-    [data-testid="stMetricLabel"] {
-        color: #94A3B8 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.1em !important;
-    }
-
     /* Hide Streamlit Branding */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
@@ -191,16 +189,18 @@ st.markdown("""
     </style>
 
     <div class="bg-animation">
-        <div class="floating-doc resume" style="left: 10%; animation-delay: 0s;"></div>
-        <div class="floating-doc folder" style="left: 25%; animation-delay: 4s;"></div>
-        <div class="floating-doc resume" style="left: 45%; animation-delay: 8s;"></div>
-        <div class="floating-doc folder" style="left: 65%; animation-delay: 2s;"></div>
-        <div class="floating-doc resume" style="left: 85%; animation-delay: 12s;"></div>
-        <div class="floating-doc folder" style="left: 15%; animation-delay: 15s;"></div>
-        <div class="floating-doc resume" style="left: 35%; animation-delay: 6s;"></div>
-        <div class="floating-doc folder" style="left: 55%; animation-delay: 10s;"></div>
-        <div class="floating-doc resume" style="left: 75%; animation-delay: 14s;"></div>
-        <div class="floating-doc folder" style="left: 95%; animation-delay: 1s;"></div>
+        <div class="floating-doc resume" style="left: 5%; animation-delay: 0s; animation-duration: 22s;"></div>
+        <div class="floating-doc folder" style="left: 15%; animation-delay: 4s; animation-duration: 28s;"></div>
+        <div class="floating-doc resume" style="left: 30%; animation-delay: 8s; animation-duration: 25s;"></div>
+        <div class="floating-doc folder" style="left: 45%; animation-delay: 2s; animation-duration: 30s;"></div>
+        <div class="floating-doc resume" style="left: 60%; animation-delay: 12s; animation-duration: 24s;"></div>
+        <div class="floating-doc folder" style="left: 75%; animation-delay: 15s; animation-duration: 27s;"></div>
+        <div class="floating-doc resume" style="left: 85%; animation-delay: 6s; animation-duration: 26s;"></div>
+        <div class="floating-doc folder" style="left: 95%; animation-delay: 10s; animation-duration: 29s;"></div>
+        <div class="floating-doc resume" style="left: 20%; animation-delay: 18s; animation-duration: 23s;"></div>
+        <div class="floating-doc folder" style="left: 40%; animation-delay: 22s; animation-duration: 31s;"></div>
+        <div class="floating-doc resume" style="left: 55%; animation-delay: 14s; animation-duration: 25s;"></div>
+        <div class="floating-doc folder" style="left: 70%; animation-delay: 1s; animation-duration: 28s;"></div>
     </div>
     """, unsafe_allow_html=True)
 
