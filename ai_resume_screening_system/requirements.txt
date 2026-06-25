@@ -1,9 +1,0 @@
-streamlit
-PyPDF2
-sentence-transformers
-transformers
-torch --index-url https://download.pytorch.org/whl/cpu
-pandas
-numpy
-requests
-python-dotenv
