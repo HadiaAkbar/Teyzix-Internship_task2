@@ -7,7 +7,7 @@ from src.data_processing.job_parser import parse_job_description
 from src.matching_engine.matcher import calculate_match_score
 from src.nlp_models.summarizer import summarize_text
 
-# Page Configuration
+                    
 st.set_page_config(
     page_title="AI Resume Screener | Jack",
     page_icon="💼",
@@ -15,7 +15,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Custom CSS for High-End Modern Theme with Animated Background
+                                                               
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
@@ -228,7 +228,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 def main():
-    # Header Section
+                    
     st.markdown('<p class="sub-heading">AI-Powered Screening System</p>', unsafe_allow_html=True)
     col_title, col_3d = st.columns([1.8, 1.2], gap="large")
     
@@ -242,7 +242,7 @@ def main():
         """, unsafe_allow_html=True)
     
     with col_3d:
-        # Embedding the Robot model with animation
+                                                  
         st.markdown("""
             <div class="robot-container" style="width:100%; height:500px; background: transparent; border-radius: 30px; overflow: hidden; margin-top: -20px; display: flex; justify-content: center; align-items: center;">
                 <img src="https://raw.githubusercontent.com/HadiaAkbar/Teyzix-Internship_task2/main/resume_screener/assets/robot_hero_blended.png" style="max-width: 120%; max-height: 120%; object-fit: contain;" alt="Robot as main character">
@@ -251,7 +251,7 @@ def main():
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # Main Interaction Area
+                           
     col1, col2 = st.columns([1, 1], gap="large")
 
     with col1:
@@ -284,7 +284,7 @@ def main():
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # Action Button
+                   
     col_btn_1, col_btn_2, col_btn_3 = st.columns([1, 1, 1])
     with col_btn_2:
         if st.button("INITIATE NEURAL SCREENING"):
@@ -306,7 +306,7 @@ def process_and_display_results(jd_input, uploaded_files):
     with st.status("Analyzing candidates...", expanded=True) as status:
         progress_bar = st.progress(0)
         for idx, uploaded_file in enumerate(uploaded_files):
-            # Simulation of extraction
+                                      
             text = f"Simulated content from {uploaded_file.name}"
             resume_data = parse_resume(text)
             resume_data['name'] = uploaded_file.name.replace(".pdf", "").replace("_", " ").title()
@@ -323,10 +323,10 @@ def process_and_display_results(jd_input, uploaded_files):
             progress_bar.progress((idx + 1) / len(uploaded_files))
         status.update(label="Analysis complete!", state="complete", expanded=False)
 
-    # Sort results
+                  
     ranked_results = sorted(results, key=lambda x: x['SCORE'], reverse=True)
     
-    # Summary Metrics
+                     
     m1, m2, m3 = st.columns(3)
     m1.metric("CANDIDATES", len(ranked_results))
     m2.metric("TOP SCORE", f"{ranked_results[0]['SCORE']*100:.1f}%")
@@ -334,7 +334,7 @@ def process_and_display_results(jd_input, uploaded_files):
 
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # Detailed Cards
+                    
     for i, candidate in enumerate(ranked_results):
         score_val = candidate['SCORE'] * 100
         score_color = "#10B981" if score_val > 70 else "#F59E0B" if score_val > 40 else "#EF4444"
@@ -357,7 +357,7 @@ def process_and_display_results(jd_input, uploaded_files):
                 </div>
             """, unsafe_allow_html=True)
 
-    # Export
+            
     df = pd.DataFrame(ranked_results)
     csv = df.to_csv(index=False).encode('utf-8')
     st.download_button(
